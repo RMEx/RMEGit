@@ -1,5 +1,6 @@
-=begin 
+@echo off
 
+GOTO:PROG
 This software provide a proposer inspection on rvdata2
 
 The MIT License (MIT)
@@ -24,13 +25,5 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-=end
-
-
-load('lib/rgss.rb')
-
-path = ARGV[0]
-raise ArgumentError.new('File does not exists !') unless File.exists?(path)
-content = File.open(path, 'r') { |f| f.read }
-inspect = Marshal.load(content)
-p inspect
+:PROG
+ruby lib/rgss_inspect.rb "%1"
